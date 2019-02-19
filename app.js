@@ -5,7 +5,7 @@ var express     = require("express"),
     Post  = require("./models/post")
 
     
-mongoose.connect("mongodb://localhost/project1");
+mongoose.connect("mongodb://CS345:de3s2VTZ5dpXY_K@cluster0-shard-00-00-sxmnr.mongodb.net:27017,cluster0-shard-00-01-sxmnr.mongodb.net:27017,cluster0-shard-00-02-sxmnr.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 
