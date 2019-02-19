@@ -1,0 +1,19 @@
+<% include ../partials/header %>
+
+<div class = 'container'>
+
+    
+    <a class = 'btn'href = '/posts/new'>Add new post</a>
+   
+    <div class = 'row text-center' style = 'display:flex;flex-wrap:wrap'>
+        <% posts.forEach(function(post){ %>
+            <div>
+                        <h4> <%= post.name %>  </h4>
+                        <p><%= post.description %></p>
+            </div>
+        <% }) %>
+    </div>
+
+</div>
+
+<% include ../partials/footer %>
