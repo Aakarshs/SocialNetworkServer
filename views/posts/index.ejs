@@ -8,8 +8,8 @@
     <div class = 'row text-center' style = 'display:flex;flex-wrap:wrap'>
         <% posts.forEach(function(post){ %>
             <div>
-                        <h4> <%= post.name %>  </h4>
-                        <p><%= post.description %></p>
+                        <h4> <%= post.text %>  </h4>
+                        <img src ='<%= campground.image %>'>
             </div>
         <% }) %>
     </div>
