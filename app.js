@@ -50,8 +50,8 @@ app.get("/posts", function(req, res){
 //CREATE - add new post to DB
 app.post("/posts", function(req, res){
     // get data from form and add to Post DB
-    var text = req.body;
-    var image = req.body;
+    var text = req.body.text;
+    var image = req.body.image;
     var newPost = {text: text, image: image}
     // Create a new post and save to DB
     Post.create(newPost, function(err, newlyCreated){
