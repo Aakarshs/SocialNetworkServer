@@ -41,7 +41,8 @@ app.get("/posts", function(req, res){
        if(err){
            console.log(err);
        } else {
-          res.render("posts/index",{posts:allPosts});
+          res.json({ success: true, posts:allPosts });
+          //res.render("posts/index",{posts:allPosts});
        }
     });
 });
