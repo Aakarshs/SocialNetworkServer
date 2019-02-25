@@ -58,8 +58,7 @@ app.post("/posts", function(req, res){
         if(err){
             console.log(err);
         } else {
-            //redirect back to posts page
-            res.redirect("/posts");
+            return res.json({ success: true });
         }
     });
 });
