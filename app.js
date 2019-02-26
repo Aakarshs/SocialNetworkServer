@@ -26,7 +26,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(require("body-parser").json());
 app.set("view engine", "ejs");
 
 
