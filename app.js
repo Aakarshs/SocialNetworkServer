@@ -73,14 +73,12 @@ app.get("/posts/new", function(req, res){
    res.render("posts/new"); 
 });
 
-app.put("/posts/:id/update", function(req, res, next) {
-    Post.update(function (req, res) {
-        Post.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, product) {
-            if (err) return next(err);
-            res.send('Udpated.');
-        });
+app.put("/posts/:id/update", function(req, res, next) {     
+    Post.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, product) {
+        if (err) return next(err);
+        res.send('Udpated.');
     });
-  });
+});
 
 app.listen(process.env.PORT, process.env.IP, function(){
    console.log("Project 1 has started!");
