@@ -52,9 +52,13 @@ app.get("/posts", function(req, res){
 app.post("/posts", function(req, res){
     // get data from form and add to Post DB
     console.log(req);
+    var name = req.body.name;
     var text = req.body.text;
     var image = req.body.image;
-    var description = req.body.description;
+    var date = req.body.date;
+    var likes = req.body.likes;
+    var dislikes = req.body.dislikes;
+
     var newPost = {text: text, image: image, description: description}
     // Create a new post and save to DB
     Post.create(newPost, function(err, newlyCreated){
