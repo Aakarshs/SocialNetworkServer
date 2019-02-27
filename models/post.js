@@ -4,7 +4,7 @@ var postSchema = new mongoose.Schema({
    name: String,
    text: String,
    image: String,
-   date: Number,
+   date: String,
    likes: Number,
    dislikes: Number,
 });
