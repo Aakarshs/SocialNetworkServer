@@ -57,7 +57,15 @@ app.post("/posts", function(req, res){
     var image = req.body.image;
     var date = req.body.date;
    
-    var newPost = {text: text, image: image, description: description}
+    var newPost = {  
+        name: Snametring,
+        text: text,
+        image: image,
+        date: date,
+        likes: 0,
+        dislikes: 0,
+    }
+
     // Create a new post and save to DB
     Post.create(newPost, function(err, newlyCreated){
         if(err){
