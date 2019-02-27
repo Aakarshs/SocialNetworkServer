@@ -66,12 +66,33 @@ app.post("/posts", function(req, res){
     });
 });
 
+
+
 //NEW - show form to create new post
 app.get("/posts/new", function(req, res){
    res.render("posts/new"); 
 });
 
-
+app.put("/updateLikes", function(req, res, next) {
+    var likes = req.body;
+    var updLikes = {};
+    if (likes.text) {
+        updLikes.text = likes.text;
+    }
+    else {
+      db.tasks.update(
+        { _id: mongojs.ObjectId(req.params.id) },
+        updLikes,
+        {},
+        function(err, likes) {
+          if (err) {
+            res.send(err);
+          }
+          res.json(likes);
+        }
+      );
+    }
+  });
 
 app.listen(process.env.PORT, process.env.IP, function(){
    console.log("Project 1 has started!");
