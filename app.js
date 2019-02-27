@@ -73,7 +73,7 @@ app.get("/posts/new", function(req, res){
    res.render("posts/new"); 
 });
 
-app.put("/updateLikes", function(req, res, next) {
+app.put("/updateLikes/:id", function(req, res, next) {
     var likes = req.body;
     var updLikes = {};
     if (likes.text) {
