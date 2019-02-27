@@ -80,7 +80,7 @@ app.put("/updateLikes", function(req, res, next) {
         updLikes.text = likes.text;
     }
     else {
-      db.tasks.update(
+      Post.update(
         { _id: mongojs.ObjectId(req.params.id) },
         updLikes,
         {},
