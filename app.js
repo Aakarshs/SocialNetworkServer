@@ -73,7 +73,10 @@ app.get("/posts/new", function(req, res){
    res.render("posts/new"); 
 });
 
-app.put("/posts/:id/update", function(req, res, next) {     
+app.put("/posts/:id/update", function(req, res, next) {   
+    console.log("=========================");
+    console.log(req.body); 
+    console.log("=========================");
     Post.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, product) {
         if (err) return next(err);
         res.send(req.body);
