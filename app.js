@@ -75,7 +75,7 @@ app.get("/posts/new", function(req, res){
 
 app.put("/posts/:id/update", function(req, res, next) {
     Post.update(function (req, res) {
-        newPost.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, product) {
+        Post.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, product) {
             if (err) return next(err);
             res.send('Udpated.');
         });
