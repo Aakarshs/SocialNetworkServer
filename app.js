@@ -58,7 +58,7 @@ app.post("/posts", function(req, res){
     var date = req.body.date;
    
     var newPost = {  
-        name: Snametring,
+        name: name,
         text: text,
         image: image,
         date: date,
