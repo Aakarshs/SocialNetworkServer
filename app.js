@@ -73,25 +73,13 @@ app.get("/posts/new", function(req, res){
    res.render("posts/new"); 
 });
 
-app.put("/updateLikes/:id", function(req, res, next) {
-    var likes = req.body;
-    var updLikes = {};
-    if (likes.text) {
-        updLikes.text = likes.text;
-    }
-    else {
-      Post.update(
-        { _id: mongojs.ObjectId(req.params.id) },
-        updLikes,
-        {},
-        function(err, likes) {
-          if (err) {
-            res.send(err);
-          }
-          res.json(likes);
-        }
-      );
-    }
+app.put("/updateLikes/:id/update", function(req, res, next) {
+    Post.update(function (req, res) {
+        newPost.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, product) {
+            if (err) return next(err);
+            res.send('Udpated.');
+        });
+    });
   });
 
 app.listen(process.env.PORT, process.env.IP, function(){
