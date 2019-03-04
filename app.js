@@ -1,10 +1,12 @@
+//initialling modules.
+
 var express     = require("express"),
     app         = express(),
     bodyParser  = require("body-parser"),
     mongoose    = require("mongoose"),
     Post  = require("./models/post")
 
-    
+//Connting to the database.
 mongoose.connect("mongodb+srv://CS345:de3s2VTZ5dpXY_K@cluster0-sxmnr.mongodb.net/test?retryWrites=true");
 
 app.use(function (req, res, next) {
@@ -26,20 +28,18 @@ app.use(function (req, res, next) {
     next();
 });
 
+//Modules for parsing the data sent from the backend.
 app.use(require("body-parser").json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
-
-app.get("/", function(req, res){
-    res.render("landing");
-});
-
-//INDEX - show all posts
+ 
+//GET - Show all posts.
 app.get("/posts", function(req, res){
     // Get all posts from DB
     Post.find({}, function(err, allPosts){
        if(err){
+            //If there is an error log it to the console.
            console.log(err);
        } else {
           res.json({ success: true, posts:allPosts });
@@ -48,15 +48,15 @@ app.get("/posts", function(req, res){
     });
 });
 
-//CREATE - add new post to DB
+//POST - Add new post to DB.
 app.post("/posts", function(req, res){
     // get data from form and add to Post DB
-    console.log(req);
     var name = req.body.name;
     var text = req.body.text;
     var image = req.body.image;
     var date = req.body.date;
    
+    //Create an object: newPost.
     var newPost = {  
         name: name,
         text: text,
@@ -66,9 +66,10 @@ app.post("/posts", function(req, res){
         dislikes: 0,
     }
 
-    // Create a new post and save to DB
+    // Create a new post and save to DB.
     Post.create(newPost, function(err, newlyCreated){
         if(err){
+            //If there is an error log it to the console.
             console.log(err);
         } else {
              return res.json({ success: true });
@@ -77,22 +78,19 @@ app.post("/posts", function(req, res){
 });
 
 
-
-//NEW - show form to create new post
-app.get("/posts/new", function(req, res){
-   res.render("posts/new"); 
-});
-
+//PUT - Used for updating likes and dislikes. (Updates the database based on the data it gets from teh frontend.) 
 app.put("/posts/:id/update", function(req, res, next) {   
-    console.log("=========================");
-    console.log(req.body); 
-    console.log("=========================");
+
+    //find the object by id and update it.
     Post.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, product) {
-        if (err) return next(err);
+        if (err){
+             //If there is an error log it to the console.
+            console.log(err);
+        } 
         res.send(req.body);
     });
 });
 
+//Bind and listen for connections.
 app.listen(process.env.PORT, process.env.IP, function(){
-   console.log("Project 1 has started!");
 });
