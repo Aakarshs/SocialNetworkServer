@@ -1,7 +1,5 @@
 # Egram Backend
 
-# Egram
-
 **Description**  
 Egram is a social media web application which users can post texts and images on the main page for everyone to see. 
 
