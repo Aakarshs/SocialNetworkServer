@@ -28,30 +28,4 @@ On the right, you can see top posters.
 
 On the main page, you can see other posts.
 
-**Documentation of the files:**    
-There are no files that we adapted from existing code.
-The default way to start writing a ReactJs app is to use “create-react app”. More on this here:
-https://github.com/facebook/create-react-app
-
-“Create React App” creates some default files for us. Those files are:  
-public/index.html
-public/manifest.json
-src/apiFunctions/serviceWorker.js
-package.json
-package-lock.json
-index.js
-
-All the other files are written/created by us.
-
-Folders:  
-src/apiFunctions : Contains the functions used by the app as well as the functions that call the endpoints.  
-src/components: Contains the individual components used to build the app.  
-src/styles: Contains style sheets for the app.   
-src/assets: Contains images and icons used in the application.  
-
-Important Files:  
-app.js: This is the main application.  
-src/apiFunctions/httpApi.js: Contains functions that call the endpoints to transmit data to the backend.  
-src/apiFunctions/functions.js: Contains functions that perform various frontend operations on the application. (Such as refreshing state and get data on render.)  
-
 
