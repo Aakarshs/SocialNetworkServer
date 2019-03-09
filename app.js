@@ -7,7 +7,8 @@ var express     = require("express"),
     Post  = require("./models/post")
 
 //Connting to the database.
-mongoose.connect("mongodb+srv://CS345:de3s2VTZ5dpXY_K@cluster0-sxmnr.mongodb.net/test?retryWrites=true");
+mongoose.connect("mongodb+srv://aakarshs:back2thefuture!@cluster0-pcxap.mongodb.net/test?retryWrites=true");
+
 
 app.use(function (req, res, next) {
 
